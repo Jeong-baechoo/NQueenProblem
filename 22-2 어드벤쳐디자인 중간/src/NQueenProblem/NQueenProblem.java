@@ -1,7 +1,8 @@
 package NQueenProblem;
 
 public class NQueenProblem {
-	final int N = 8;
+	final int N = 4;
+	static int cou =0;
 
 	void printSolution(int board[][]) {
 		for (int i = 0; i < N; i++) {
@@ -13,6 +14,8 @@ public class NQueenProblem {
 	}
 
 	boolean isSafe(int board[][], int row, int col) {
+		cou++;
+		System.out.println(cou);
 		int i, j;
 
 		for (i = 0; i < col; i++)
@@ -21,6 +24,7 @@ public class NQueenProblem {
 
 		for (i = row, j = col; i >= 0 && j >= 0; i--, j--)
 			if (board[i][j] == 1)
+				
 				return false;
 
 		for (i = row, j = col; j >= 0 && i < N; i++, j--)
@@ -31,6 +35,7 @@ public class NQueenProblem {
 	}
 
 	boolean solveNQUtil(int[][] board, int col) {
+		
 		if (col >= N)
 			return true;
 
