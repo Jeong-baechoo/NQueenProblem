@@ -2,7 +2,7 @@ package NQueenProblem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NQueenProblem {
+public class all_solution {
  
     static List<List<Integer> > result
         = new ArrayList<List<Integer> >();
