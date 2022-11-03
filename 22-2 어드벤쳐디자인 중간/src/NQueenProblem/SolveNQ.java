@@ -17,7 +17,7 @@ public class SolveNQ {
     		return false;
     	}
 
-    	DisplaySolution.display(board);   //출력
+    	PrintSolution.print(board);   //출력
     	return true;
     }
 }
