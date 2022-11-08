@@ -8,8 +8,11 @@ public class NQueenTest {
 		System.out.print("배열의 크기를 입력하세요: ");
 		Scanner scan = new Scanner(System.in);
 		boardSize = scan.nextInt();
+		while(!SolveNQUtill.CheckInput()){
+			boardSize = scan.nextInt();
+		}
 		SolveNQ solve = new SolveNQ();
 		solve.solve();
 	}
-
+	
 }
