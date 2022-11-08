@@ -1,12 +1,13 @@
 package NQueenProblem;
 
-import java.util.Stack;
-
 public class SolveNQ {
 	static boolean check(int[][] board, int col) {   
 				
-		if (col >= NQueenTest.boardSize)  // 행이 
-			return true;
+		if (col >= NQueenTest.boardSize) {
+		    return true;
+		}
+	
+		
 		for (int i = 0; i < NQueenTest.boardSize; i++) { //SolveNq로 뺴기
 			if (IsSafe.checkSafe(board, i, col)) {  // 퀸이 위치할수 있는 위치를 체크
 				board[i][col] = 1;  //위치가 가능하면 1로 셋팅
@@ -32,15 +33,9 @@ public class SolveNQ {
                 board[i][j] = 0;
             }
         }
-		if (SolveNQ.check(board, 0) == false) { // 에러처리
-			System.out.println("Solution does not exist");
-			
-			return false;
-		}
+		SolveNQ.check(board, 0);
 		PrintSolution.print(board);
-		
 		return true;
-
 	}
 	
 }

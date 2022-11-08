@@ -11,8 +11,9 @@ public class NQueenTest {
 		while(!SolveNQUtill.CheckInput()){
 			boardSize = scan.nextInt();
 		}
-		SolveNQ solve = new SolveNQ();
-		solve.solve();
+		SolveNQ.solve();
+		AllSolution.solve();
+		
 	}
 	
 }

@@ -20,7 +20,6 @@ public class IsSafe {
 			if (board[i][j] == 1)
 				return false;
 		}
-		
 		return true;
     }
 }
