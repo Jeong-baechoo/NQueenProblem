@@ -26,8 +26,8 @@ public class AllSolution {
         return false;
     }
 
-    static boolean solve() {
-        int n = NQueenTest.boardSize;
+    static boolean solve(int boardSize) {
+        int n = boardSize;
         int[][] board = new int[n][n]; //체스판 생성
 
         for (int i = 0; i < n; i++) {  //체스판 초기화
@@ -36,7 +36,8 @@ public class AllSolution {
             }
         }
         AllSolution.check(board, 0);
-        System.out.println(allsol);
+
+        System.out.println("총 해답의 개수는 "+allsol+"입니다.");
         return true;
 
     }
