@@ -2,18 +2,20 @@ package NQueenProblem;
 
 import java.util.Scanner;
 
+
+
 public class NQueenTest {
 	static int boardSize;
 	public static void main(String[] args) {
-	    System.out.print("배열의 크기를 입력하세요: ");
         
         Scanner scan = new Scanner(System.in);
-        boardSize = scan.nextInt();
-        while(SolveNQUtill.CheckInput(boardSize)==false) {
-        boardSize = scan.nextInt();
+        while (true) {
+            boardSize = SolveNQUtill.CheckInputcheckInputInteger(scan, "배열의 크기를 입력하세요: ");
+            if(boardSize>3 & boardSize <14)
+                break;
+            else if(boardSize<4 || boardSize>13)
+                System.out.println("3과 13사이의 정수를 입력하세요.");
         }
-        scan.close();
-        
         
         SolveNQ.solve(boardSize);
         AllSolution.solve(boardSize);
