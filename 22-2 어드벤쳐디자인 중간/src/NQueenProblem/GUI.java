@@ -68,12 +68,7 @@ public class GUI extends JFrame {
         boardsize.setColumns(10);
         
         JButton btnInput = new JButton("입력");
-        btnInput.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                String n = boardsize.getText();
-            }
-        });
+        
         btnInput.setBounds(361, 25, 91, 27);
         panel.add(btnInput);
         
@@ -82,12 +77,25 @@ public class GUI extends JFrame {
         contentPane.add(panel_1);
         panel_1.setLayout(null);
         
-        JLabel lballsol = new JLabel("총 해답의 갯수: ");
+        JLabel lballsol = new JLabel();
+        btnInput.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int n=Integer.parseInt(boardsize.getText());
+                NQueenTest.boardSize=n;
+                try {
+                    SolveNQ.solve(n);
+                } catch (InterruptedException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+               int b= AllSolution.getSolve(n);
+               lballsol.setText("총 해답의 개수는 "+b);
+                
+            }
+        });
         lballsol.setFont(new Font("굴림", Font.PLAIN, 18));
         lballsol.setBounds(12, 10, 201, 42);
         panel_1.add(lballsol);
-        
     }
 }
-    
-

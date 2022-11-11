@@ -22,7 +22,6 @@ public class SolveNQ {
                 else{ // 위치
                     board[i][col] = 0;
                 }
-                    
             }           
         }   
         return false;

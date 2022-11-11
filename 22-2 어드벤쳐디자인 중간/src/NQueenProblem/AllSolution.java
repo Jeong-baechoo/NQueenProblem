@@ -38,8 +38,13 @@ public class AllSolution {
         AllSolution.check(board, 0);
 
         System.out.println("총 해답의 개수는 "+allsol+"입니다.");
+        getSolve(allsol);
         return true;
 
+    }
+
+    public static int getSolve(int allsol) {
+        return allsol;
     }
     
 }
