@@ -2,8 +2,8 @@ package NQueenProblem;
 
 
 public class AllSolution {
-    static int allsol = 0;
-    static boolean check(int[][] board, int col) {   
+    static int allsol;
+    static boolean check(int[][] board, int col) {
         if (col >= NQueenTest.boardSize) {
             ++allsol;
         }
@@ -27,6 +27,7 @@ public class AllSolution {
     }
 
     static int solve(int boardSize) {
+        allsol =0;
         int n = boardSize;
         int[][] board = new int[n][n]; //체스판 생성
 

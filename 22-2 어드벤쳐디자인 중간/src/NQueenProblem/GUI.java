@@ -97,12 +97,18 @@ public class GUI extends JFrame {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
-               lballsol.setText("총 해답의 개수는 "+AllSolution.solve(n));
+                try {
+                    new GUIAnimation();
+                } catch (InterruptedException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                lballsol.setText("총 해답의 개수는 "+AllSolution.solve(n)+"입니다.");
                
             }
         });
         lballsol.setFont(new Font("굴림", Font.PLAIN, 18));
-        lballsol.setBounds(12, 10, 201, 42);
+        lballsol.setBounds(12, 10, 290, 42);
         panel_1.add(lballsol);
     }
 }

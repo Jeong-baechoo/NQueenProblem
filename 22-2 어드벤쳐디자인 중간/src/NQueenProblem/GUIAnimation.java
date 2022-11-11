@@ -3,14 +3,19 @@ package NQueenProblem;
 import javax.swing.*;
 import java.awt.*;
 public class GUIAnimation extends JFrame{
-    final static int M = 13;
+    final static int M = NQueenTest.boardSize;
     static JLabel [][] jLabel = new JLabel[M][M];
     
     public GUIAnimation() throws InterruptedException{
         JFrame jFrame = new JFrame("NQueen GUI");
         
         jFrame.setLayout(new GridLayout(M, M));
-        jFrame.setSize(M*50, M*50);
+        if(M>6) {
+            jFrame.setSize(M*60, M*60);            
+        }
+        else if (M<7) {
+            jFrame.setSize(M*80, M*80);
+        }
  
         jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
  
@@ -47,19 +52,19 @@ public class GUIAnimation extends JFrame{
  
         jFrame.setVisible(true);
         
-        for(int i = 0; i < M; ++i) {
-            for (int j = 0; j < M; ++j) {
-                jLabel[i][j].setText(queen);
-                Thread.sleep(50);
-            }
-        }
-        
-        for(int i = 0; i < M; ++i) {
-            for (int j = 0; j < M; ++j) {
-                jLabel[i][j].setText("");
-                Thread.sleep(50);
-            }
-        }
+//        for(int i = 0; i < M; ++i) {
+//            for (int j = 0; j < M; ++j) {
+//                jLabel[i][j].setText(queen);
+//                Thread.sleep(50);
+//            }
+//        }
+//        
+//        for(int i = 0; i < M; ++i) {
+//            for (int j = 0; j < M; ++j) {
+//                jLabel[i][j].setText("");
+//                Thread.sleep(50);
+//            }
+//        }
     }
     
     
