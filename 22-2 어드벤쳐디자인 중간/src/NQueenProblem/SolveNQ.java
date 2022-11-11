@@ -12,7 +12,8 @@ public class SolveNQ {
             if (IsSafe.checkSafe(board, i, col)) {  // 퀸이 위치할수 있는 위치를 체크
                 board[i][col] = 1;  //위치가 가능하면 1로 셋팅
                 PrintSolution.print(board);
-                Thread.sleep(800);
+                
+               // Thread.sleep(800);
                 System.out.println();
                 System.out.println();
                 if (SolveNQ.check(board, col + 1) == true)

@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -17,6 +18,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 
 
 public class GUI extends JFrame {
@@ -82,16 +84,21 @@ public class GUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int n=Integer.parseInt(boardsize.getText());
-                NQueenTest.boardSize=n;
+                JOptionPane errormessage=new JOptionPane();
+               int b=0;
+               if(n<4||n>12) {
+               errormessage.showMessageDialog(null, "잘못된 값을 입력하였습니다.");
+               return;
+               }
+               NQueenTest.boardSize=n;
                 try {
                     SolveNQ.solve(n);
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
-               int b= AllSolution.getSolve(n);
-               lballsol.setText("총 해답의 개수는 "+b);
-                
+               lballsol.setText("총 해답의 개수는 "+AllSolution.solve(n));
+               
             }
         });
         lballsol.setFont(new Font("굴림", Font.PLAIN, 18));
