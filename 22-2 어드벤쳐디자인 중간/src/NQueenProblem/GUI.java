@@ -55,23 +55,23 @@ public class GUI extends JFrame {
         contentPane.setLayout(null);
         
         JPanel panel = new JPanel();
-        panel.setBounds(12, 10, 498, 79);
+        panel.setBounds(12, 10, 498, 84);
         contentPane.add(panel);
         panel.setLayout(null);
         
         JLabel lblNewLabel = new JLabel("체스판의 크기를 입력해주세요");
-        lblNewLabel.setBounds(12, 28, 219, 19);
+        lblNewLabel.setBounds(12, 28, 263, 19);
         panel.add(lblNewLabel);
-        lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 16));
+        lblNewLabel.setFont(new Font("굴림", Font.BOLD, 18));
         
         boardsize = new JTextField();
-        boardsize.setBounds(243, 25, 96, 27);
+        boardsize.setBounds(287, 25, 96, 27);
         panel.add(boardsize);
         boardsize.setColumns(10);
         
         JButton btnInput = new JButton("입력");
         
-        btnInput.setBounds(361, 25, 91, 27);
+        btnInput.setBounds(395, 25, 91, 27);
         panel.add(btnInput);
         
         JPanel panel_1 = new JPanel();
@@ -107,7 +107,7 @@ public class GUI extends JFrame {
                
             }
         });
-        lballsol.setFont(new Font("굴림", Font.PLAIN, 18));
+        lballsol.setFont(new Font("굴림", Font.BOLD, 18));
         lballsol.setBounds(12, 10, 290, 42);
         panel_1.add(lballsol);
     }
