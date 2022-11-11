@@ -1,7 +1,7 @@
 package NQueenProblem;
 
 public class SolveNQ {
-	static boolean check(int[][] board, int col) {   
+	static boolean check(int[][] board, int col) throws InterruptedException {   
 				
 	    if (col >= NQueenTest.boardSize) {
             return true;
@@ -11,10 +11,14 @@ public class SolveNQ {
         for (int i = 0; i < NQueenTest.boardSize; i++) { //SolveNq로 뺴기
             if (IsSafe.checkSafe(board, i, col)) {  // 퀸이 위치할수 있는 위치를 체크
                 board[i][col] = 1;  //위치가 가능하면 1로 셋팅
-
+                PrintSolution.print(board);
+                Thread.sleep(800);
+                System.out.println();
+                System.out.println();
                 if (SolveNQ.check(board, col + 1) == true)
+                {
                     return true;
-                    
+                }
                 else{ // 위치
                     board[i][col] = 0;
                 }
@@ -24,7 +28,7 @@ public class SolveNQ {
         return false;
     }
 
-    static boolean solve(int boardSize) {
+    static boolean solve(int boardSize) throws InterruptedException {
         int n = boardSize;
         int[][] board = new int[n][n]; //체스판 생성
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class SolveNQUtill 
 {
-    static int CheckInputcheckInputInteger(Scanner s, String msg) {
+    static int CheckInput(Scanner s, String msg) {
         int n=0;
         boolean valid; // 유효한 값 입력 확인
         do {
