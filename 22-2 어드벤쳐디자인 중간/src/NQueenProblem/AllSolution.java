@@ -37,7 +37,6 @@ public class AllSolution {
         }
         AllSolution.check(board, 0);
         System.out.println(allsol);
-        System.out.println(allList.get(1));
         return true;
 
     }
