@@ -3,12 +3,13 @@ package NQueenProblem;
 import javax.swing.*;
 import java.awt.*;
 public class GUIAnimation extends JFrame{
-    final static int M = NQueenTest.boardSize;
-    static JLabel [][] jLabel = new JLabel[M][M];
     
+        static int M = 5;
+        static JLabel [][] jLabel = new JLabel[M][M];
+        static String queen = "★";
     public GUIAnimation() throws InterruptedException{
-        JFrame jFrame = new JFrame("NQueen GUI");
         
+        JFrame jFrame = new JFrame("NQueen GUI");
         jFrame.setLayout(new GridLayout(M, M));
         if(M>6) {
             jFrame.setSize(M*60, M*60);            
@@ -21,7 +22,6 @@ public class GUIAnimation extends JFrame{
  
         int color = 0;
         //String num;
-        String queen = "★";
         Font font = new Font("굴림", Font.PLAIN, 40);
         for(int i = 0; i < M; ++i) {
             if ((M%2) == 0 & (i%2) == 1)
@@ -52,21 +52,48 @@ public class GUIAnimation extends JFrame{
  
         jFrame.setVisible(true);
         
-//        for(int i = 0; i < M; ++i) {
-//            for (int j = 0; j < M; ++j) {
-//                jLabel[i][j].setText(queen);
-//                Thread.sleep(50);
-//            }
-//        }
-//        
-//        for(int i = 0; i < M; ++i) {
-//            for (int j = 0; j < M; ++j) {
-//                jLabel[i][j].setText("");
-//                Thread.sleep(50);
-//            }
-//        }
+        GUIAnimation.solve(5);
     }
+    static boolean check(int[][] board, int col) throws InterruptedException {   
+        
+        if (col >= M) {
+            return true;
+        }
     
+        
+        for (int i = 0; i < 5; i++) { //SolveNq로 뺴기
+            if (IsSafe.checkSafe(board, i, col)) {  // 퀸이 위치할수 있는 위치를 체크
+                board[i][col] = 1;
+                jLabel[i][col].setText(queen);;  //위치가 가능하면 1로 셋팅
+                Thread.sleep(1000);
+                
+               // Thread.sleep(800);
+                if (GUIAnimation.check(board, col + 1) == true)
+                {
+                    return true;
+                }
+                else{ // 위치
+                    board[i][col]=0;
+                    jLabel[i][col].setText("");
+                    Thread.sleep(1000);
+                }
+            }           
+        }   
+        return false;
+    }
+
+    static boolean solve(int boardSize) throws InterruptedException {
+        int n = 5;
+        int[][] board = new int[n][n]; //체스판 생성
+
+        for (int i = 0; i < n; i++) {  //체스판 초기화
+            for (int j = 0; j < n; j++) {
+                board[i][j] = 0;
+            }
+        }
+        GUIAnimation.check(board, 0);
+        return true;
+    }
     
     static public void main(String[] arg) throws InterruptedException {
         new GUIAnimation();

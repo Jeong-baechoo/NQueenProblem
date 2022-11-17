@@ -92,13 +92,13 @@ public class GUI extends JFrame {
                }
                NQueenTest.boardSize=n;
                 try {
-                    SolveNQ.solve(n);
+                    SolveNQ.solve(n); //solveNQ 실
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 try {
-                    new GUIAnimation();
+                    new GUIAnimation(); // 애니메이션 실
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
