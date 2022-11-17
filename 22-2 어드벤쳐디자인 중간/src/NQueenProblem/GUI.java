@@ -30,16 +30,7 @@ public class GUI extends JFrame {
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    GUI frame = new GUI();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        GUI frame = new GUI();
     }
 
     /**
@@ -80,29 +71,32 @@ public class GUI extends JFrame {
         panel_1.setLayout(null);
         
         JLabel lballsol = new JLabel();
+        setVisible(true);
+        
         btnInput.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int n=Integer.parseInt(boardsize.getText());
+                int n = Integer.parseInt(boardsize.getText());
                 JOptionPane errormessage=new JOptionPane();
-               int b=0;
                if(n<4||n>12) {
                errormessage.showMessageDialog(null, "잘못된 값을 입력하였습니다.");
                return;
                }
-               NQueenTest.boardSize=n;
+               NQueenTest.boardSize = n;
                 try {
                     SolveNQ.solve(n); //solveNQ 실
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
+                
                 try {
                     new GUIAnimation(); // 애니메이션 실
                 } catch (InterruptedException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
+                
                 lballsol.setText("총 해답의 개수는 "+AllSolution.solve(n)+"입니다.");
                
             }

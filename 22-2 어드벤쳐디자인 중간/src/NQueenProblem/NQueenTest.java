@@ -15,7 +15,7 @@ public class NQueenTest {
 //                System.out.println("3과 13사이의 정수를 입력하세요.");
 //        }
         
-        SolveNQ.solve(boardSize);
+        //SolveNQ.solve(boardSize);
         AllSolution.solve(boardSize);
 		
 	}
