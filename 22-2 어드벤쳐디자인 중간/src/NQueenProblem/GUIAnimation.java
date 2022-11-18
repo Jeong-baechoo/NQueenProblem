@@ -6,27 +6,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
-public class GUIAnimation extends JFrame {
-    
-    
+public class GUIAnimation extends JFrame {    
         static int M  = NQueenTest.boardSize;
         static JLabel [][] jLabel = new JLabel[M][M];
-        static String queen = "♛";
+        static String queen = "★";
+        Font font = new Font("굴림", Font.PLAIN, 40);
+        Font fontS = new Font("굴림", Font.PLAIN, 20);
+        static int time = 150;
+        
     public GUIAnimation() throws InterruptedException{
         JFrame jFrame = new JFrame("NQueen GUI");
         jFrame.setLayout(new GridLayout(M, M)); // 체스판 그
-        if(M>6) {
+        if(M>6 && M<13) {
             jFrame.setSize(M*60, M*60);            
         }
         else if (M<7) {
             jFrame.setSize(M*80, M*80);
+        }
+        else if (M>12) {
+            jFrame.setSize(M*30, M*30);
         }
  
         jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
  
         int color = 0;
         //String num;
-        Font font = new Font("굴림", Font.PLAIN, 40);
         for(int i = 0; i < M; ++i) {
             if ((M%2) == 0 & (i%2) == 1)
                 color=1;
@@ -35,7 +39,12 @@ public class GUIAnimation extends JFrame {
             for (int j = 0; j < M; ++j) {
                 //num = Integer.toString(color);
                 jLabel[i][j] = new JLabel( "" );
-                jLabel[i][j].setFont(font);
+                if (M>12) {
+                    jLabel[i][j].setFont(fontS);                    
+                }
+                else if (M<13) {
+                    jLabel[i][j].setFont(font);
+                }
                 jLabel[i][j].setForeground(Color.yellow);
                 jLabel[i][j].setHorizontalAlignment(SwingConstants.CENTER);
                 jLabel[i][j].setSize(50, 50);
@@ -71,7 +80,11 @@ public class GUIAnimation extends JFrame {
       
         for (int i = 0; i < M; i++) { //SolveNq로 뺴기
             jLabel[i][col].setText(queen);
-            Thread.sleep(50);
+            if(time != 0) {
+                for(int k=0; k<=time; k++) {
+                    Thread.sleep(1);                    
+                }
+            }
             if(!IsSafe.checkSafe(board, i, col)){
                 jLabel[i][col].setText("");
                 
