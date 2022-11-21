@@ -34,7 +34,7 @@ __스택과 백트래킹__
 ## GUI Animation 구현
 JAVA swing을 통한 구현 이클립스의 디자인 툴인 windowbuilder를 최대한 활용해 하드코딩을 줄임
 ## 체스판 애니메이션의 간단한 구현 설명 
-![이미지]([https://user-images.githubusercontent.com/54587781/203083833-b64e8f32-03ff-4b82-b145-0a40fac31626.gif](https://user-images.githubusercontent.com/54587781/203086184-2e1102ff-4d55-41e0-bf7a-baa71c92b917.gif))
+![이미지](https://user-images.githubusercontent.com/54587781/203086184-2e1102ff-4d55-41e0-bf7a-baa71c92b917.gif)
 Grid 배치관리자를 통해 JLabel을 배치하고 체스판을 생성한다. 
 JLabel의 기본 틀을 체스판과 같이 구현하고 퀸을 의미하는 UTF 이모지를 JLabel Text인자로 넣었다 지웠다하며 애니메이션과 같은 효과를 낸다.
 
